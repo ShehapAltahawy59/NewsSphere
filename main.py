@@ -42,6 +42,20 @@ def Technology():
     # You can pass any necessary data to the template as needed
     return render_template('landing_page.html',general_response= technology_response)
 
+@app.route('/about_me')
+def about_me():
+    # Here you can add any logic to fetch and process data related to the Business category
+    # For now, let's just render a template to display the Business category
+    # You can pass any necessary data to the template as needed
+    return render_template('about_me.html')
+
+@app.route('/sources')
+def sources():
+    # Here you can add any logic to fetch and process data related to the Business category
+    # For now, let's just render a template to display the Business category
+    # You can pass any necessary data to the template as needed
+    return render_template('sources.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
