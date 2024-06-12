@@ -1,5 +1,6 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from requests import get
+
 app = Flask(__name__)
 key = "8650af4fe36f411694acf596dbc3b72e"
 url = "https://newsapi.org/v2/top-headlines?country=eg&"
@@ -42,7 +43,7 @@ def Technology():
     # You can pass any necessary data to the template as needed
     return render_template('landing_page.html',general_response= technology_response)
 
-@app.route('/about_me')
+@app.route('/about')
 def about_me():
     # Here you can add any logic to fetch and process data related to the Business category
     # For now, let's just render a template to display the Business category
@@ -55,6 +56,14 @@ def sources():
     # For now, let's just render a template to display the Business category
     # You can pass any necessary data to the template as needed
     return render_template('sources.html')
+
+@app.route('/search')
+def search():
+    query = request.args.get('query')
+    response = get("https://newsapi.org/v2/everything?q={}&apiKey={}".format(query,key)).json()
+    print(response)
+    # You can pass any necessary data to the template as needed
+    return render_template('landing_page.html',general_response = response)
 
 
 if __name__ == "__main__":

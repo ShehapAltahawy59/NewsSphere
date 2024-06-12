@@ -80,6 +80,25 @@ nav ul li a:hover {
 .search-form button:hover {
     background-color: #0056b3;
 }
+.auth-links {
+    display: flex;
+    align-items: center;
+}
+
+.auth-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.auth-links a:hover {
+    color: #333;
+    background-color: #f0f0f0;
+}
 
 .main-content {
     max-width: 1200px;
@@ -150,9 +169,20 @@ footer {
 }
 
 .facebook-logo {
-    max-width: 20px; /* Set maximum width for the Facebook logo */
+    max-width: 17px; /* Set maximum width for the Facebook logo */
     height: auto; /* Maintain aspect ratio */
 }
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-container h1 {
+        margin-bottom: 20px;
+    }}
 
 .category-container {
     background-color: #f9f9f9;

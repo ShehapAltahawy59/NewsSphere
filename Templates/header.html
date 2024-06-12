@@ -1,8 +1,12 @@
+{% set show_search_bar = show_search_bar|default(true) %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>NewsSphere</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
 </head>
 <body>
     <header>
@@ -12,13 +16,19 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/sources">Sources</a></li>
-                    <li><a href="/about_me">About Me</a></li>
-                    <!-- Add other navigation links as needed -->
+                    <li><a href="/about">about</a></li>
                 </ul>
             </nav>
-            <form class="search-form" action="/search" method="get">
-                <input type="text" name="query" placeholder="Search...">
-                <button type="submit">Search</button>
-            </form>
+            {% if show_search_bar %}
+        <form id="search-form" class="search-form">
+            <input type="text" name="query" id="search-input" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+        {% endif %}
+            <div class="auth-links">
+                <a href="/login" class="auth-link">login</a>
+                <a href="/register" class="auth-link">register</a>
+            </div>
         </div>
     </header>
+    
