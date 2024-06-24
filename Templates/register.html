@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+
+<h2>Register</h2>
+<form method="POST" action="{{ url_for('register') }}">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label>Preferences:</label>
+    <div>
+        <input type="checkbox" id="business" name="preferences" value="business">
+        <label for="business">Business</label>
+    </div>
+    <div>
+        <input type="checkbox" id="health" name="preferences" value="health">
+        <label for="health">Health</label>
+    </div>
+    <div>
+        <input type="checkbox" id="general" name="preferences" value="general">
+        <label for="general">General</label>
+    </div>
+    <div>
+        <input type="checkbox" id="sports" name="preferences" value="sports">
+        <label for="sports">Sports</label>
+    </div>
+    <div>
+        <input type="checkbox" id="technology" name="preferences" value="technology">
+        <label for="technology">Technology</label>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+
+{% include 'footer.html' %}
