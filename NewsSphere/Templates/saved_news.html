@@ -1,27 +1,17 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 {% include 'header.html' %}
-
-<div class="category-container">
-    <h2>Categories</h2>
-    <ul>
-        <li><a href="/Business" class="category">Business</a></li>
-        <li><a href="/Health" class="category">Health</a></li>
-        <li><a href="/Sports" class="category">Sports</a></li>
-        <li><a href="/Technology" class="category">Technology</a></li>
-    </ul>
-</div>
-
 <main>
     <div class="news-container" id="news-container">
-        {% for news in general_response['articles'] %}
-            <div class="news-article">
-                {% if news['urlToImage'] %}
+        {% for news in saved_news %}
+            <div class="news-article" id="news-article">
+                {% if news['urlToImage'] != "None" %}
                     <img src="{{ news['urlToImage'] }}" alt="News image">
                 {% else %}
                     <img src="{{ url_for('static', filename='News_featured.png') }}" alt="Default news image">
                 {% endif %}
                 <h3>{{ news['title'] }}</h3>
-                {% if news['description'] %}
+                {% if news['description'] != "None"%}
                     <p>{{ news['description'] }}</p>
                 
                 {% endif %}
@@ -29,12 +19,17 @@
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ news['url'] }}" class="share-button" target="_blank">
                     <img src="{{ url_for('static', filename='facebook-logo.png') }}" alt="Share on Facebook" class="facebook-logo">
                 </a>
+           
+                <button class="remove-button"
+                data-url="{{ news['url'] }}"
+                onclick="toggleremoveNews(this)"
+                
+                >Remove</button>
+
                 
             </div>
         {% endfor %}
     </div>
 </main>
-
 {% include 'footer.html' %}
-
 <script src="{{ url_for('static', filename='script.js') }}"></script>
