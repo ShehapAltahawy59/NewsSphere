@@ -9,7 +9,7 @@
             <p><strong>Email:</strong> {{ current_user.email }}</p>
         </div>
         <div class="settings-section">
-            <form method="POST" action="{{ url_for('logout') }}">
+            <form method="POST" action="{{ url_for('users.logout') }}">
                 
                 <button type="submit" class="logout-button">Logout</button>
             </form>

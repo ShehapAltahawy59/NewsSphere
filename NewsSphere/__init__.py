@@ -2,13 +2,27 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-app = Flask(__name__,template_folder='templates')
+from NewsSphere.config import Config
 
-app.config['SECRET_KEY'] = '73ac6ddcd6a88955e0f720b20b459f93'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///site.db"
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-login_manager.login_view = "login"
+
+
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = "users.login"
 login_manager.login_message_category = 'info'
-from NewsSphere import routes
+
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+
+    from NewsSphere.users.routes import users
+    from NewsSphere.main.routes import main
+
+    app.register_blueprint(users)
+    app.register_blueprint(main)
+    return app
