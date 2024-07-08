@@ -3,7 +3,7 @@ import requests
 main  = Blueprint("main",__name__)
 
 
-key = "e856559f037147cabf276a4bd5135e02"
+key = "40b6ad40eb474fd183802d736f63822f"
 url = "https://newsapi.org/v2/top-headlines?country=eg&"
 # business_response = get(url+"category=business&apiKey={}".format(key)).json()
 # health_response = get(url+"category=health&apiKey={}".format(key)).json()
@@ -28,7 +28,7 @@ def landing_page():
     general_response = fetch_news(category="general", page=page, page_size=page_size)
     total_results = general_response.get('totalResults', 0)
     
-    return render_template("landing_page.html", general_response=general_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template("landing_page.html", general_response=general_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='general')
 
 @main.route('/Business')
 def business():
@@ -36,7 +36,7 @@ def business():
     page_size = request.args.get('pageSize', 10, type=int)
     business_response = fetch_news(category="business", page=page, page_size=page_size)
     total_results = business_response.get('totalResults', 0)
-    return render_template('landing_page.html', general_response=business_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template('landing_page.html', general_response=business_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='business')
 
 @main.route('/Health')
 def health():
@@ -44,7 +44,7 @@ def health():
     page_size = request.args.get('pageSize', 10, type=int)
     health_response = fetch_news(category="health", page=page, page_size=page_size)
     total_results = health_response.get('totalResults', 0)
-    return render_template('landing_page.html', general_response=health_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template('landing_page.html', general_response=health_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='health')
 
 @main.route('/Sports')
 def sports():
@@ -52,7 +52,7 @@ def sports():
     page_size = request.args.get('pageSize', 10, type=int)
     sports_response = fetch_news(category="sports", page=page, page_size=page_size)
     total_results = sports_response.get('totalResults', 0)
-    return render_template('landing_page.html', general_response=sports_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template('landing_page.html', general_response=sports_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='sports')
 
 @main.route('/Technology')
 def technology():
@@ -60,7 +60,7 @@ def technology():
     page_size = request.args.get('pageSize', 10, type=int)
     technology_response = fetch_news(category="technology", page=page, page_size=page_size)
     total_results = technology_response.get('totalResults', 0)
-    return render_template('landing_page.html', general_response=technology_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template('landing_page.html', general_response=technology_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='technology')
 
 
 

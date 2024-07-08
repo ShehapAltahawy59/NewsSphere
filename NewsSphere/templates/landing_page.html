@@ -16,18 +16,27 @@
         {% for news in general_response %}
             <div class="news-article">
                 {% if news['urlToImage'] %}
-                    <img src="{{ news['urlToImage'] }}" alt="News image">
+		<a href={{ news['url'] }}><img src="{{ news['urlToImage'] }}" alt="News image"></a>
                 {% else %}
-                    <img src="{{ url_for('static', filename='News_featured.png') }}" alt="Default news image">
+			{% if category=='business'%}
+				<a href={{ news['url'] }}><img src="{{ url_for('static', filename='entrepreneur-1340649_1280.jpg') }}" alt="Default news image"></a>
+			{% elif category=='health'%}
+				<a href={{ news['url'] }}><img src="{{ url_for('static', filename='blood-pressure-1584223_1280.jpg') }}" alt="Default news image"></a>
+			{% elif category=='sports'%}
+				<a href={{ news['url'] }}><img src="{{ url_for('static', filename='stadium-1590576_1280.jpg') }}" alt="Default news image"></a>
+			{% elif category=='technology'%}
+				<a href={{ news['url'] }}><img src="{{ url_for('static', filename='industry-3087393_1280.jpg') }}" alt="Default news image"></a>
+			{% else %}
+				<a href={{ news['url'] }}><img src="{{ url_for('static', filename='News_featured.png') }}" alt="Default news image"></a>
+			{% endif %}
                 {% endif %}
-                <h3>{{ news['title'] }}</h3>
+                <h3><a href={{ news['url'] }}>{{ news['title'] }}</a></h3>
                 {% if news['description'] %}
                     <p>{{ news['description'] }}</p>
                 
                 {% endif %}
-                <a href="{{ news['url'] }}" target="_blank">Read more...</a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ news['url'] }}" class="share-button" target="_blank">
-                    <img src="{{ url_for('static', filename='facebook-logo.png') }}" alt="Share on Facebook" class="facebook-logo">
+                    <img src="{{ url_for('static', filename='icons8-facebook-logo-50.png') }}" alt="Share on Facebook" class="facebook-logo">
                 </a>
            
                 <button class="heart-button"

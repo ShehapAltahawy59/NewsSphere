@@ -13,7 +13,10 @@ body {
 }
 
 header {
-    background-color: #333;
+	background-image: url('breaking-news-background-loop-free-video.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -24,7 +27,6 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
@@ -45,19 +47,35 @@ nav ul li {
 }
 
 nav ul li a {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
     color: white;
+    margin-left: 15px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a img {
+    margin-right: 5px;
+    max-width: 40px;
+    max-height: 40px;
 }
 
 nav ul li a:hover {
-    color: #f0f0f0;
+    color: #d1c1c1;
 }
 
 .search-form {
     display: flex;
     align-items: center;
+    
 }
+
+
 
 .search-form input[type="text"] {
     padding: 10px;
@@ -67,12 +85,10 @@ nav ul li a:hover {
 }
 
 .search-form button {
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 0 5px 5px 0;
     border: none;
     background-color: #007bff;
-    color: white;
-    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -86,6 +102,9 @@ nav ul li a:hover {
 }
 
 .auth-links a {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
     color: white;
     margin-left: 15px;
     text-decoration: none;
@@ -99,6 +118,11 @@ nav ul li a:hover {
     color: #333;
     background-color: #f0f0f0;
 }
+
+.auth-links a img {
+    margin-right: 5px;
+}
+
 
 .main-content {
     max-width: 1200px;
@@ -119,6 +143,11 @@ nav ul li a:hover {
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc; /* Add a border at the bottom of each article */
     padding-bottom: 20px; /* Add padding at the bottom to separate articles */
+}
+.news-article h3 a {
+	text-decoration: none;
+	color: #333;
+	transition: color 0.3s ease;
 }
 
 .news-article img {
@@ -157,8 +186,11 @@ nav ul li a:hover {
     color: #0056b3;
 }
 
-footer {
-    background-color: #333;
+footer {	
+	background-image: url('breaking-news-background-loop-free-video.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
     color: white;
     text-align: center;
     padding: 20px 0;
