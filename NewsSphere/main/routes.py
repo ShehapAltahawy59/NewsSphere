@@ -71,7 +71,7 @@ def search():
     page_size = request.args.get('pageSize', 10, type=int)  # Number of results per page, default to 10
     search_response =fetch_news(category=None,query=query,page=page,page_size=page_size)
     total_results = search_response.get('totalResults', 0)
-    print(search_response)
+    
 
     return render_template(
         'landing_page.html',
