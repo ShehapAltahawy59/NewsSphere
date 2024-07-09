@@ -14,12 +14,14 @@
 <main>
     <div class="news-container" id="news-container">
         {% for news in general_response %}
+        {% if news['title'] != "[Removed]" %}
             <div class="news-article">
-                {% if news['urlToImage'] %}
-                    <img src="{{ news['urlToImage'] }}" alt="News image">
+                <img src="{{ news['urlToImage'] }}" alt="">
+                <!-- {% if news['urlToImage'] %}
+                   
                 {% else %}
                     <img src="{{ url_for('static', filename='News_featured.png') }}" alt="Default news image">
-                {% endif %}
+                {% endif %} -->
                 <h3>{{ news['title'] }}</h3>
                 {% if news['description'] %}
                     <p>{{ news['description'] }}</p>
@@ -40,6 +42,7 @@
 
                 
             </div>
+            {%endif%}
         {% endfor %}
     </div>
     <!-- Pagination Controls -->
