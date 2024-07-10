@@ -1,9 +1,10 @@
 from flask import render_template,request,Blueprint,url_for
 import requests
+from bs4 import BeautifulSoup
 main  = Blueprint("main",__name__)
 
 
-key = "e856559f037147cabf276a4bd5135e02"
+key = "40b6ad40eb474fd183802d736f63822f"
 url = "https://newsapi.org/v2/top-headlines?country=eg&"
 # business_response = get(url+"category=business&apiKey={}".format(key)).json()
 # health_response = get(url+"category=health&apiKey={}".format(key)).json()
@@ -45,7 +46,7 @@ def landing_page():
             
         else:
             news['urlToImage'] = url_for('static', filename='News_featured.png')
-    return render_template("landing_page.html", general_response=general_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+    return render_template("landing_page.html", general_response=general_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='general')
 
 @main.route('/Business')
 def business():
@@ -58,8 +59,8 @@ def business():
             news['urlToImage'] = check_image_url(news['urlToImage'])
             
         else:
-            news['urlToImage'] = url_for('static', filename='News_featured.png')
-    return render_template('landing_page.html', general_response=business_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+            news['urlToImage'] = url_for('static', filename='entrepreneur-1340649_1280.jpg')
+    return render_template('landing_page.html', general_response=business_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='business')
 
 @main.route('/Health')
 def health():
@@ -72,8 +73,8 @@ def health():
             news['urlToImage'] = check_image_url(news['urlToImage'])
             
         else:
-            news['urlToImage'] = url_for('static', filename='News_featured.png')
-    return render_template('landing_page.html', general_response=health_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+            news['urlToImage'] = url_for('static', filename='blood-pressure-1584223_1280.jpg')
+    return render_template('landing_page.html', general_response=health_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='health')
 
 @main.route('/Sports')
 def sports():
@@ -86,8 +87,8 @@ def sports():
             news['urlToImage'] = check_image_url(news['urlToImage'])
             
         else:
-            news['urlToImage'] = url_for('static', filename='News_featured.png')
-    return render_template('landing_page.html', general_response=sports_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+            news['urlToImage'] = url_for('static', filename='stadium-1590576_1280.jpg')
+    return render_template('landing_page.html', general_response=sports_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='sports')
 
 @main.route('/Technology')
 def technology():
@@ -100,8 +101,8 @@ def technology():
             news['urlToImage'] = check_image_url(news['urlToImage'])
             
         else:
-            news['urlToImage'] = url_for('static', filename='News_featured.png')
-    return render_template('landing_page.html', general_response=technology_response['articles'], current_page=page, page_size=page_size, total_results=total_results)
+            news['urlToImage'] = url_for('static', filename='industry-3087393_1280.jpg')
+    return render_template('landing_page.html', general_response=technology_response['articles'], current_page=page, page_size=page_size, total_results=total_results, category='technology')
 
 
 
