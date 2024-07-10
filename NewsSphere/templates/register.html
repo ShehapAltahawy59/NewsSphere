@@ -1,5 +1,8 @@
 {% include 'header.html' %}
-<div class="form">
+<div class="form-container">
+	<div class="image">
+		<img src="{{ url_for('static', filename='vecteezy_flat-isometric-3d-illustration-concept-of-creating-personal_16716631.jpg') }}">
+	</div>
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset>
@@ -32,16 +35,16 @@
                 {{ form.confirmed_password()}}
                 {% endif %}
 
-            </div>
+            </div>	    
 
         </fieldset>
         <div>
             {{ form.submit()}}
         </div>
+	<div>
+		<small> Already Have An Account ! <a href="{{url_for('users.login')}}">Login Now </a> </small>
+	    </div>
     </form>
-    <div>
-        <small> Already Have An Account ! <a href="{{url_for('users.login')}}">Login Now </a> </small>
-    </div>
 </div>
 </div>
 

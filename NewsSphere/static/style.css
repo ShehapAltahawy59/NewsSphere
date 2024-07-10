@@ -10,17 +10,22 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
+    background-color: #9259ae;
 }
 
 header {
-	background-image: url('breaking-news-background-loop-free-video.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+    background-image: url('breaking-news-background-loop-free-video.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     padding: 20px 0;
     text-align: center;
     border-radius: 8px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .header-container {
@@ -66,9 +71,9 @@ nav ul li a img {
 }
 
 nav ul li a:hover {
-    color: #d1c1c1;
-}
-
+	color: #333;
+	background-color: #f0f0f0;
+    }
 .search-form {
     display: flex;
     align-items: center;
@@ -79,14 +84,18 @@ nav ul li a:hover {
 
 .search-form input[type="text"] {
     padding: 10px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px;
     border: none;
     font-size: 1rem;
+    opacity: .8;
+    transition: background-color 0.9s ease;
 }
 
 .search-form button {
     padding: 5px 10px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 20px;
+    opacity: .8;
+    margin-left: 5px;
     border: none;
     background-color: #007bff;
     cursor: pointer;
@@ -187,16 +196,18 @@ nav ul li a:hover {
 }
 
 footer {	
-	background-image: url('breaking-news-background-loop-free-video.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+    background-image: url('breaking-news-background-loop-free-video.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     text-align: center;
     padding: 20px 0;
     margin-top: 20px;
     bottom: 0;
     border-radius: 10px;
+    height: 70px;
+    width: 100%;
 }
 .share-button {
     display: inline-block;
@@ -228,6 +239,11 @@ footer {
 .category-container h2 {
     margin-bottom: 10px;
 }
+.category-container h2 img {
+	max-width: 30px;
+	max-height: 30px;
+}
+
 
 .category-container ul {
     list-style-type: none;
@@ -237,13 +253,18 @@ footer {
 .category-container ul li {
     display: inline-block;
     margin-right: 10px;
+    text-align: end;
+}
+.category-container ul li img {
+	max-width: 20px;
+	max-height: 20px;
 }
 
 /* Add category styles */
 .category {
     color: #333;
     text-decoration: none;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
@@ -259,7 +280,6 @@ footer {
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 } 
-
 
 fieldset {
     border: 1px solid #ddd;
